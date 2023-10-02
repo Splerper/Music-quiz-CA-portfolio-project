@@ -1,4 +1,6 @@
+import random
 from quest_ans import question_list
+import re
 
 class Player:
     def __init__(self, name):
@@ -13,6 +15,15 @@ class Player:
         else:
             print("Sorry, wrong answer")
             self.incorrect += 1
+
+def check_ans(answer, quest):
+    if answer.lower() == quest.answer:
+        print("corrent")
+    elif answer + ")" in quest.choices and answer.lower() != quest.answer:
+        print("incorrent")
+    else:
+        print("Invalid answer")
+        return check_ans(input(">> "), quest)
 
 print(""" ##      ##  ##    ##    ######  ##    #######      #####    ##    ##  ##  #########
  ###    ###  ##    ##  ##        ##   ##           ##   ##   ##    ##  ##         ##
@@ -34,5 +45,6 @@ print(f"""
 Good Luck, {player_1.name}
       """)
 
-
-print(question_list[0].pq())
+question = question_list[random.randint(0, 14)]
+question.pq()
+check_ans(input(">> "), question)
