@@ -1,3 +1,4 @@
+from quest_ans import question_list
 
 class Player:
     def __init__(self, name):
@@ -13,23 +14,25 @@ class Player:
             print("Sorry, wrong answer")
             self.incorrect += 1
 
-class Questions:
-    def __init__(self, question, correct_letter, choices):
-        self.question = question
-        self.answer = correct_letter
-        self.choices = choices
-
-print(" ##      ##  ##    ##    ######  ##    #######      #####    ##    ##  ##  #########")
-print(" ###    ###  ##    ##  ##        ##   ##           ##   ##   ##    ##  ##         ##")
-print(" ####  ####  ##    ##  ##        ##  ##            ##   ##   ##    ##  ##        ## ")
-print(" ## #### ##  ##    ##  ##        ##  ##            ##   ##   ##    ##  ##       ##  ")
-print(" ##  ##  ##  ##    ##   ######   ##  ##            ##   ##   ##    ##  ##      ##   ")
-print(" ##      ##  ##    ##        ##  ##  ##            ##   ##   ##    ##  ##     ##    ")
-print(" ##      ##  ##    ##        ##  ##  ##            ##   ##   ##    ##  ##    ##     ")
-print(" ##      ##  ##    ##        ##  ##   ##           ##   ##   ##    ##  ##   ##      ")
-print(" ##      ##  ########  #######   ##    #######      #### ### ########  ##  #########")
+print(""" ##      ##  ##    ##    ######  ##    #######      #####    ##    ##  ##  #########
+ ###    ###  ##    ##  ##        ##   ##           ##   ##   ##    ##  ##         ##
+ ####  ####  ##    ##  ##        ##  ##            ##   ##   ##    ##  ##        ## 
+ ## #### ##  ##    ##  ##        ##  ##            ##   ##   ##    ##  ##       ##  
+ ##  ##  ##  ##    ##   ######   ##  ##            ##   ##   ##    ##  ##      ##   
+ ##      ##  ##    ##        ##  ##  ##            ##   ##   ##    ##  ##     ##    
+ ##      ##  ##    ##        ##  ##  ##            ##   ##   ##    ##  ##    ##     
+ ##      ##  ##    ##        ##  ##   ##           ##   ##   ##    ##  ##   ##      
+ ##      ##  ########  #######   ##    #######      #### ### ########  ##  #########""")
 print("-------------------------------------------------------------------------------------")
 print("This quiz will test your knowledge on music theory.                                  ")
 print("-------------------------------------------------------------------------------------")
 
-player_1 = Player(input("What will you be called?\n >>"))
+player_1 = Player(
+    input("What will you be called?\n >>")
+    )
+print(f"""
+Good Luck, {player_1.name}
+      """)
+
+
+print(question_list[0].pq())
