@@ -17,10 +17,10 @@ class Player:
             self.incorrect += 1
 
 def check_ans(answer, quest):
-    if answer.lower() == quest.answer:
-        print("corrent")
-    elif answer + ")" in quest.choices and answer.lower() != quest.answer:
-        print("incorrent")
+    if answer.lower().strip() == quest.answer and re.search("\s*", answer):
+        player_1.scoring(True)
+    elif answer.strip() + ")" in quest.choices and answer.lower().strip() != quest.answer:
+        player_1.scoring(False)
     else:
         print("Invalid answer")
         return check_ans(input(">> "), quest)
