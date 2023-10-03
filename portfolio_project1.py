@@ -20,6 +20,9 @@ class Player:
 def check_ans(answer, quest):
     if answer.lower().strip() == quest.answer and re.search("\s*", answer):
         player_1.scoring(True)
+    elif re.search("\s+", answer) and answer.strip() == "":
+        print("Invalid answer")
+        return check_ans(input(">> "), quest)
     elif answer.strip() + ")" in quest.choices and answer.lower().strip() != quest.answer:
         player_1.scoring(False)
     else:
