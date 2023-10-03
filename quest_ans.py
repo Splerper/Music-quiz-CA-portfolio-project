@@ -1,11 +1,13 @@
 class Questions:
+    quest_num = 0
     def __init__(self, question, correct_letter, choices):
         self.question = question
         self.answer = correct_letter
         self.choices = choices
         
     def __repr__(self):
-        desc = f"{self.question}\n{self.choices}"
+        Questions.quest_num += 1
+        desc = f"{Questions.quest_num}) {self.question}\n{self.choices}"
         return desc
     
     def pq(self):

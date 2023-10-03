@@ -10,10 +10,10 @@ class Player:
     
     def scoring(self, correct):
         if correct:
-            print("That's correct!")
+            print("That's correct!\n")
             self.score += 1
         else:
-            print("Sorry, wrong answer")
+            print("Sorry, wrong answer\n")
             self.incorrect += 1
 
 def check_ans(answer, quest):
@@ -25,18 +25,9 @@ def check_ans(answer, quest):
         print("Invalid answer")
         return check_ans(input(">> "), quest)
 
-print(""" ##      ##  ##    ##    ######  ##    #######      #####    ##    ##  ##  #########
- ###    ###  ##    ##  ##        ##   ##           ##   ##   ##    ##  ##         ##
- ####  ####  ##    ##  ##        ##  ##            ##   ##   ##    ##  ##        ## 
- ## #### ##  ##    ##  ##        ##  ##            ##   ##   ##    ##  ##       ##  
- ##  ##  ##  ##    ##   ######   ##  ##            ##   ##   ##    ##  ##      ##   
- ##      ##  ##    ##        ##  ##  ##            ##   ##   ##    ##  ##     ##    
- ##      ##  ##    ##        ##  ##  ##            ##   ##   ##    ##  ##    ##     
- ##      ##  ##    ##        ##  ##   ##           ##   ##   ##    ##  ##   ##      
- ##      ##  ########  #######   ##    #######      #### ### ########  ##  #########
--------------------------------------------------------------------------------------
-This quiz will test your knowledge on music theory and history.
--------------------------------------------------------------------------------------""")
+with open("title.txt") as intro:
+    title = intro.read()
+    print(title)
 
 player_1 = Player(
     input("What will you be called?\n >>")
@@ -45,6 +36,7 @@ print(f"""
 Good Luck, {player_1.name}
       """)
 
-question = question_list[random.randint(0, 14)]
-question.pq()
-check_ans(input(">> "), question)
+for i in range(0, 15):
+    question = question_list[random.randint(0, 14)]
+    question.pq()
+    check_ans(input(">> "), question)
