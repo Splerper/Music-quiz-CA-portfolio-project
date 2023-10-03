@@ -1,6 +1,8 @@
+import random
+
 class Questions:
     quest_num = 0
-    def __init__(self, question, correct_letter, choices):
+    def __init__(self, question, correct_letter="", choices=""):
         self.question = question
         self.answer = correct_letter
         self.choices = choices
@@ -12,6 +14,39 @@ class Questions:
     
     def pq(self):
         print(self)
+        
+flag = []
+letter_count = 0
+def random_choice(choices, ans, question):
+    global letter_count
+    
+    if len(flag) >= 4:
+        flag.clear()
+        
+    choice = random.choice(choices)
+    if choice in flag:
+        return random_choice(choices, ans, question)
+    flag.append(choice)
+    
+    letter = ["a", "b", "c", "d"]
+    
+    if choice == ans:
+        q_2.answer = letter[letter_count]
+    letter_count += 1
+    
+    if letter_count > 1:
+        if "b)" in question.choices and "c)" not in question.choices:
+            if letter_count >= 1:
+                letter_count = 0
+        elif "c)" in  question.choices and "d)" not in question.choices:
+            if letter_count >= 2:
+                letter_count = 0
+        elif "d)" in question.choices:
+            if letter_count > 3:
+                letter_count = 0
+    return choice
+
+# Questions should not have more than 4 choices.
 
 q_1 = Questions(
     "What does the term \"diminuendo\" mean?",
@@ -19,11 +54,13 @@ q_1 = Questions(
     "a) Gradually getting louder\nb) Gradually getting quicker\nc) Gradually getting quieter\nd) Slow"
     )
 
+q2a = ["Repeat from the dal sengo (D.S)", "The end", "In time", "Repeat from the beginning"]
+answer = "Repeat from the beginning"
 q_2 = Questions(
     "What does \"da capo (D.C)\" mean?",
-    "d",
-    "a) Repeat from the dal sengo (D.S)\nb) The end\nc) In time\nd) Repeat from the beginning"
 )
+q_2.choices = "a) b) c) d)"
+q_2.choices = f"a) {random_choice(q2a, answer, q_2)}\nb) {random_choice(q2a, answer, q_2)}\nc) {random_choice(q2a, answer, q_2)}\nd) {random_choice(q2a, answer, q_2)}"
 
 q_3 = Questions(
     "What does \"vivace\" mean?",
@@ -94,7 +131,7 @@ q_13 = Questions(
 q_14 = Questions(
     "What does the term \"larghetto\" mean?",
     "d",
-    "a) Very slow, solemn\nb) Gradually getting slower\n c) Smoothly\nd) Rather slow"
+    "a) Very slow, solemn\nb) Gradually getting slower\nc) Smoothly\nd) Rather slow"
 )
 
 q_15 = Questions(
