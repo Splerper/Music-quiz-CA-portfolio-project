@@ -50,9 +50,11 @@ for i in range(0, 15):
     if player_1.score == 10:
         for i in range(0, 20):
             print("")
-        print("You cannot beat me.")
+        print(f"You cannot beat me {player_1.name}.") 
         time.sleep(1)
         for i in range(0, 100):
             print("")
     question.pq()
     check_ans(input(">> "), question)
+
+# Add print score here
