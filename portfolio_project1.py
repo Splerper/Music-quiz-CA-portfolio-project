@@ -1,6 +1,7 @@
 import random
-from quest_ans import question_list
 import re
+import time
+from quest_ans import question_list
 
 class Player:
     def __init__(self, name):
@@ -35,8 +36,20 @@ player_1 = Player(
 print(f"""
 Good Luck, {player_1.name}
       """)
-
+used_q = []
 for i in range(0, 15):
-    question = question_list[random.randint(0, 14)]
+    while True:
+        question = question_list[random.randint(0, 14)]
+        if question in used_q:
+            continue
+        used_q.append(question)
+        break
+    if player_1.score == 10:
+        for i in range(0, 20):
+            print("")
+        print("You cannot beat me.")
+        time.sleep(1)
+        for i in range(0, 100):
+            print("")
     question.pq()
     check_ans(input(">> "), question)
