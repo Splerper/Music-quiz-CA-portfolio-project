@@ -1,7 +1,7 @@
 import random
 import re
 import time
-from quest_ans import question_list
+from quest_ans import question_list, kill_questions, Questions
 
 class Player:
     def __init__(self, name):
@@ -41,7 +41,8 @@ Good Luck, {player_1.name}
       """)
 used_q = []
 def run_game():
-    for i in range(0, 15):
+    count = 0
+    while count < 15:
         while True:
             question = question_list[random.randint(0, 14)]
             if question in used_q:
@@ -55,7 +56,19 @@ def run_game():
             time.sleep(1)
             for i in range(0, 100):
                 print("")
+            break
         question.pq()
+        count += 1
+        check_ans(input(">> "), question)
+    while count < 15:
+        while True:
+            question = kill_questions[random.randint(0, 7)]
+            if question in used_q:
+                continue
+            used_q.append(question)
+            break
+        question.pq()
+        count += 1
         check_ans(input(">> "), question)
 run_game()
 if player_1.score <= 0:
@@ -77,6 +90,7 @@ if player_1.score <= 0:
     used_q.clear()
     player_1.score = 0
     player_1.incorrect = 0
+    Questions.quest_num = 0
     run_game()
     if player_1.score <=0:
         for i in range(0, 20):
@@ -91,3 +105,10 @@ if player_1.score <= 0:
                 
                 """)
 print(f"You got {player_1.score}/15 correct!")
+
+if player_1.score >= 15:
+    print("huh, I guess I lost.. cheater")
+elif player_1.score < 10 and player_1.score > 0:
+    print("Better luck next time")
+elif player_1.score > 10 and player_1.score < 15:
+    print("Getting a little closer now ;)")
