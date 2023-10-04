@@ -40,21 +40,54 @@ print(f"""
 Good Luck, {player_1.name}
       """)
 used_q = []
-for i in range(0, 15):
-    while True:
-        question = question_list[random.randint(0, 14)]
-        if question in used_q:
-            continue
-        used_q.append(question)
-        break
-    if player_1.score == 10:
+def run_game():
+    for i in range(0, 15):
+        while True:
+            question = question_list[random.randint(0, 14)]
+            if question in used_q:
+                continue
+            used_q.append(question)
+            break
+        if player_1.score == 10:
+            for i in range(0, 20):
+                print("")
+            print(f"You cannot beat me {player_1.name}.") 
+            time.sleep(1)
+            for i in range(0, 100):
+                print("")
+        question.pq()
+        check_ans(input(">> "), question)
+run_game()
+if player_1.score <= 0:
+    for i in range(0, 20):
+        print("")
+    print("How could this happen")
+    time.sleep(2)
+    for i in range(0,20):
+        print("")
+    print("Did we not teach you well?")
+    time.sleep(2)
+    out = ["What is wrong with you", "You are are not welcome here", "Don't come back here", "How could you", "There will be consequences", "Death is calling for you", "Never show your face here again"]
+    for i in range(0,70):
+        print(random.choice(out))
+    time.sleep(1)
+    for i in range(0, 100):
+        print("")
+    print("Try again")
+    used_q.clear()
+    player_1.score = 0
+    player_1.incorrect = 0
+    run_game()
+    if player_1.score <=0:
         for i in range(0, 20):
-            print("")
-        print(f"You cannot beat me {player_1.name}.") 
+            print("""
+                
+                """)
+        print("I hate you")
         time.sleep(1)
         for i in range(0, 100):
-            print("")
-    question.pq()
-    check_ans(input(">> "), question)
-
-# Add print score here
+            print("""
+                
+                
+                """)
+print(f"You got {player_1.score}/15 correct!")
