@@ -133,3 +133,53 @@ q_15.choices = "a) b) c) d)"
 q_15.choices = f"a) {random_choice(q15a, answer, q_15)}\nb) {random_choice(q15a, answer, q_15)}\nc) {random_choice(q15a, answer, q_15)}\nd) {random_choice(q15a, answer, q_15)}"
 
 question_list = [q_1, q_2, q_3, q_4, q_5, q_6, q_7, q_8, q_9, q_10, q_11, q_12, q_13, q_14, q_15]
+
+k1a = ["EGB", "ACE", "GBD", "DF#A"]
+answer = "GBD"
+kill1 = Questions("What is the subdominant chord of D Major?")
+kill1.choices = "a) b) c) d)"
+kill1.choices = f"a) {random_choice(k1a, answer, kill1)}\nb) {random_choice(k1a, answer, kill1)}\nc) {random_choice(k1a, answer, kill1)}\nd) {random_choice(k1a, answer, kill1)}"
+
+k2a = ["An inferior substitute", "The backround structure", "The bassline", "The fundamental line"]
+answer = "The backround structure"
+kill2 = Questions("In Schenkerian analysis, the Ursatz represents:")
+kill2.choices = "a) b) c) d)"
+kill2.choices = f"a) {random_choice(k2a, answer, kill2)}\nb) {random_choice(k2a, answer, kill2)}\nc) {random_choice(k2a, answer, kill2)}\nd) {random_choice(k2a, answer, kill2)}"
+
+k3a = ["The notes of a melody are alternately divided between parts", "Woodwind players (in early music) play con sordino", "All players suddenly stop playing", "(In contemporary music) the percussionist imitates drunkenness"]
+answer = "The notes of a melody are alternately divided between parts"
+kill3 = Questions("“Hocket” or “hoquetus” is a technique in which…")
+kill3.choices = "a) b) c) d)"
+kill3.choices = f"a) {random_choice(k3a, answer, kill3)}\nb) {random_choice(k3a, answer, kill3)}\nc) {random_choice(k3a, answer, kill3)}\nd) {random_choice(k3a, answer, kill3)}"
+
+k4a = ["IIImin7♭5", "♭IIImaj7#5", "♭III-7♭5", "♭IIImaj7♭5"]
+answer = "♭IIImaj7#5"
+kill4 = Questions("In a harmonic minor scale, the ♭III chord would be harmonized in what way?")
+kill4.choices = "a) b) c) d)"
+kill4.choices = f"a) {random_choice(k4a, answer, kill4)}\nb) {random_choice(k4a, answer, kill4)}\nc) {random_choice(k4a, answer, kill4)}\nd) {random_choice(k4a, answer, kill4)}"
+
+k5a = ["VImaj7", "♭VI-7♭5", "♭VI-7", "♭VImaj7"]
+answer = "♭VImaj7"
+kill5 = Questions("In a harmonic minor scale, the ♭VI chord would be harmonized in what way?")
+kill5.choices = "a) b) c) d)"
+kill5.choices = f"a) {random_choice(k5a, answer, kill5)}\nb) {random_choice(k5a, answer, kill5)}\nc) {random_choice(k5a, answer, kill5)}\nd) {random_choice(k5a, answer, kill5)}"
+
+k6a = ["♭IIImaj7#5", "♭IIImin7♭5", "♭III-7♭5", "♭IIImaj7♭5"]
+answer = "♭IIImaj7#5"
+kill6 = Questions("In a melodic minor scale, the ♭III chord would be harmonized in what way?")
+kill6.choices = "a) b) c) d)"
+kill6.choices = f"a) {random_choice(k6a, answer, kill6)}\nb) {random_choice(k6a, answer, kill6)}\nc) {random_choice(k6a, answer, kill6)}\nd) {random_choice(k6a, answer, kill6)}"
+
+k7a = ["C♯-A♭-C-B-A-B♭-E-F-E♭-F♯-D-G", "F♯-B-G-B♭-Ab-A-E♭-E-D-C♯-F-C", "B♭-F-A-F♯-A♭-G-C♯-C-D-E♭-B-E", "C♯-F♯-D-E♭-F-E-B♭-A-B-A♭-C-G"]
+answer = "C♯-A♭-C-B-A-B♭-E-F-E♭-F♯-D-G"
+kill7 = Questions("What is the retrograde inversion 0 of the following tone row: G-C-A♭-B-A-B♭-E-F-E♭-D-F♯-C♯")
+kill7.choices = "a) b) c) d)"
+kill7.choices = f"a) {random_choice(k7a, answer, kill7)}\nb) {random_choice(k7a, answer, kill7)}\nc) {random_choice(k7a, answer, kill7)}\nd) {random_choice(k7a, answer, kill7)}"
+
+k8a = ["Mixolydian", "Aeolian", "Dorian", "Lyndian"]
+answer = "Dorian"
+kill8 = Questions("What modern mode is the equivalent of the Hypomixolydian mode, except the last note of the scale is different?")
+kill8.choices = "a) b) c) d)"
+kill8.choices = f"a) {random_choice(k8a, answer, kill8)}\nb) {random_choice(k8a, answer, kill8)}\nc) {random_choice(k8a, answer, kill8)}\nd) {random_choice(k8a, answer, kill8)}"
+
+kill_questions = [kill1, kill2, kill3, kill4, kill5, kill6, kill7, kill8]
