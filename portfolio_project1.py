@@ -18,7 +18,10 @@ class Player:
             self.incorrect += 1
 
 def check_ans(answer, quest):
-    if answer.lower().strip() == quest.answer and re.search("\s*", answer):
+    if answer == "":
+        print("Invalid answer")
+        return check_ans(input(">> "), quest)
+    elif answer.lower().strip() == quest.answer and re.search("\s*", answer):
         player_1.scoring(True)
     elif re.search("\s+", answer) and answer.strip() == "":
         print("Invalid answer")
@@ -72,19 +75,19 @@ def run_game():
         check_ans(input(">> "), question)
 run_game()
 if player_1.score <= 0:
-    for i in range(0, 20):
+    for i in range(0, 90):
         print("")
     print("How could this happen")
     time.sleep(2)
-    for i in range(0,20):
+    for i in range(0, 90):
         print("")
     print("Did we not teach you well?")
     time.sleep(2)
     out = ["What is wrong with you", "You are are not welcome here", "Don't come back here", "How could you", "There will be consequences", "Death is calling for you", "Never show your face here again"]
-    for i in range(0,70):
+    for i in range(0,80):
         print(random.choice(out))
     time.sleep(1)
-    for i in range(0, 100):
+    for i in range(0, 300):
         print("")
     print("Try again")
     used_q.clear()
@@ -93,7 +96,7 @@ if player_1.score <= 0:
     Questions.quest_num = 0
     run_game()
     if player_1.score <=0:
-        for i in range(0, 20):
+        for i in range(0, 80):
             print("""
                 
                 """)
@@ -109,6 +112,6 @@ print(f"You got {player_1.score}/15 correct!")
 if player_1.score >= 15:
     print("huh, I guess I lost.. cheater")
 elif player_1.score < 10 and player_1.score > 0:
-    print("Better luck next time")
+    print("Better luck next time. Try to get a better score!")
 elif player_1.score > 10 and player_1.score < 15:
     print("Getting a little closer now ;)")
