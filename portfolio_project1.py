@@ -110,7 +110,7 @@ if player_1.score <= 0:
 print(f"You got {player_1.score}/15 correct!")
 
 if player_1.score >= 15:
-    print("huh, I guess I lost.. cheater")
+    print("Cheater. How is this possible. What did you do...")
 elif player_1.score < 10 and player_1.score > 0:
     print("Better luck next time. Try to get a better score!")
 elif player_1.score > 10 and player_1.score < 15:
